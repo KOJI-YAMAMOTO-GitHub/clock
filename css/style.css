@@ -128,7 +128,7 @@
 #time {
   position: absolute;
   top: 60%;
-  left: calc(30%);
+  left: 300px;
   transform: translateY(-50%);
   font-size: 18px;
 }
