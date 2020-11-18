@@ -30,6 +30,8 @@ setInterval(() => {
 
   var elem = document.getElementById("time");
   elem.textContent = now;
-  var elem2 = document.getElementById("bsize");
+  var elem2 = document.getElementById("bwsize");
   elem2.textContent = window.innerWidth;
+  var elem3 = document.getElementById("bhsize");
+  elem3.textContent = window.innerHeight;
 }, 300);
