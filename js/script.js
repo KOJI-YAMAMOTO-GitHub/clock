@@ -32,7 +32,7 @@ setInterval(() => {
   const h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
-  const w = "(" + youbi[date1.getDay()] + ")";
+  const w = "(" + youbi[now.getDay()] + ")";
 
   var elem = document.getElementById("time");
 //  elem.textContent = now;
