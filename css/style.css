@@ -8,6 +8,12 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+@media screen and ( max-width: 640px ) { /* ウィンドウサイズが 640px 以下の場合有効 */
+.clock {
+  width: 500px;
+  height: 500px;
+}
+}
 .clock_hour {
   position: absolute;
   top: calc(50% - 150px);
