@@ -1,3 +1,5 @@
+const youbi = ["日","月","火","水","木","金","土"];
+
 setInterval(() => {
   // 現在時間の取得
   const now = new Date();
@@ -24,14 +26,20 @@ setInterval(() => {
 setInterval(() => {
   // 現在時間の取得
   const now = new Date();
+  const yea = now.getFullYear();
+  const mon = now.getMonth() + 1;
+  const da = now.getDate();
   const h = now.getHours();
   const m = now.getMinutes();
   const s = now.getSeconds();
+  const w = "(" + youbi[date1.getDay()] + ")";
 
   var elem = document.getElementById("time");
-  elem.textContent = now;
-  var elem2 = document.getElementById("bwsize");
-  elem2.textContent = window.innerWidth;
-  var elem3 = document.getElementById("bhsize");
-  elem3.textContent = window.innerHeight;
+//  elem.textContent = now;
+  elem.textContent = yea + "/" + mon + "/" + da + " " + h + ":" + m + ":" + s + " " + w;
+
+//   var elem2 = document.getElementById("bwsize");
+//   elem2.textContent = window.innerWidth;
+//   var elem3 = document.getElementById("bhsize");
+//   elem3.textContent = window.innerHeight;
 }, 300);
