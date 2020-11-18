@@ -126,9 +126,16 @@
   transform: translateY(-50%);
   font-size: 18px;
 }
-#bsize {
+#bwsize {
   position: absolute;
   top: 70%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+#bhsize {
+  position: absolute;
+  top: 80%;
   left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
