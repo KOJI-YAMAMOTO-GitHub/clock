@@ -125,4 +125,10 @@
   left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
+#bsize {
+  position: absolute;
+  top: 70%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
 }
