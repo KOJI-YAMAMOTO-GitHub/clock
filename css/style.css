@@ -10,28 +10,28 @@
 }
 .clock_hour {
   position: absolute;
-  top: calc(50% - 150px);
+  top: calc(50% - 300px);
   left: calc(50% - 5px);
   width: 10px;
-  height: 150px;
+  height: 300px;
   background: #333;
   transform-origin: bottom;
 }
 .clock_min {
   position: absolute;
-  top: calc(50% - 180px);
+  top: calc(50% - 280px);
   left: calc(50% - 2px);
   width: 4px;
-  height: 180px;
+  height: 280px;
   background: #333;
   transform-origin: bottom;
 }
 .clock_sec {
   position: absolute;
-  top: calc(50% - 200px);
+  top: calc(50% - 330px);
   left: calc(50% - 1px);
   width: 2px;
-  height: 200px;
+  height: 330px;
   background: #ff0000;
   transform-origin: bottom;
 }
@@ -45,14 +45,14 @@
 .clock_1 {
   position: absolute;
   top: 10%;
-  right: 120px;
+  right: 180px;
   transform: translateY(-50%);
   font-size: 30px;
 }
 .clock_2 {
   position: absolute;
   top: 28%;
-  right: 40px;
+  right: 60px;
   transform: translateY(-50%);
   font-size: 30px;
 }
@@ -66,14 +66,14 @@
 .clock_4 {
   position: absolute;
   top: 73%;
-  right: 40px;
+  right: 60px;
   transform: translateY(-50%);
   font-size: 30px;
 }
 .clock_5 {
   position: absolute;
   top: 90%;
-  right: 120px;
+  right: 180px;
   transform: translateY(-50%);
   font-size: 30px;
 }
@@ -87,14 +87,14 @@
 .clock_7 {
   position: absolute;
   top: 90%;
-  left: 120px;
+  left: 180px;
   transform: translateY(-50%);
   font-size: 30px;
 }
 .clock_8 {
   position: absolute;
   top: 73%;
-  left: 40px;
+  left: 60px;
   transform: translateY(-50%);
   font-size: 30px;
 }
@@ -108,14 +108,14 @@
 .clock_10 {
   position: absolute;
   top: 28%;
-  left: 40px;
+  left: 60px;
   transform: translateY(-50%);
   font-size: 30px;
 }
 .clock_11 {
   position: absolute;
   top: 10%;
-  left: 120px;
+  left: 180px;
   transform: translateY(-50%);
   font-size: 30px;
 }
@@ -144,6 +144,62 @@
   .clock {
     width: 400px;
     height: 400px;
+  }
+  .clock_hour {
+    top: calc(50% - 160px);
+    height: 160px;
+  }
+  .clock_min {
+    top: calc(50% - 140px);
+    height: 140px;
+  }
+  .clock_sec {
+    top: calc(50% - 170px);
+    height: 170px;
+  }
+  .clock_12 {
+  }
+  .clock_1 {
+    top: 10%;
+    right: 100px;
+  }
+  .clock_2 {
+    top: 28%;
+    right: 40px;
+  }
+  .clock_3 {
+    top: 50%;
+    right: 10px;
+  }
+  .clock_4 {
+    top: 73%;
+    right: 40px;
+  }
+  .clock_5 {
+    top: 90%;
+    right: 100px;
+  }
+  .clock_6 {
+  }
+  .clock_7 {
+    top: 90%;
+    left: 120px;
+  }
+  .clock_8 {
+    top: 73%;
+    left: 40px;
+  }
+  .clock_9 {
+    top: 50%;
+    left: 10px;
+  }
+  .clock_10 {
+    top: 28%;
+    left: 40px;
+  }
+  .clock_11 {
+    top: 10%;
+    left: 100px;
   }
   #time {
     left: 100px;
