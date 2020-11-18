@@ -8,7 +8,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-@media screen and ( max-width: 640px ) { /* ウィンドウサイズが 640px 以下の場合有効 */
+@media screen and ( max-height: 640px ) { /* ウィンドウサイズが 640px 以下の場合有効 */
 .clock {
   width: 400px;
   height: 400px;
