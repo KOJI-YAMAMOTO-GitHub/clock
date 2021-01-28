@@ -140,6 +140,13 @@
   transform: translateY(-50%);
   font-size: 18px;
 }
+.banner {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
+
 @media screen and ( max-height: 640px ) { /* ウィンドウサイズが 640px 以下の場合有効 */
   .clock {
     width: 400px;
@@ -204,4 +211,10 @@
   #time {
     left: 100px;
   }
+  .banner {
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+  }  
 }
