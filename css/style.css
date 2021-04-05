@@ -165,51 +165,64 @@
     height: 170px;
   }
   .clock_12 {
+    font-size: 30px;
   }
   .clock_1 {
     top: 10%;
     right: 100px;
+    font-size: 30px;
   }
   .clock_2 {
     top: 28%;
     right: 40px;
+    font-size: 30px;
   }
   .clock_3 {
     top: 50%;
     right: 10px;
+    font-size: 30px;
   }
   .clock_4 {
     top: 73%;
     right: 40px;
+    font-size: 30px;
   }
   .clock_5 {
     top: 90%;
     right: 100px;
+    font-size: 30px;
   }
   .clock_6 {
+    font-size: 30px;
   }
   .clock_7 {
     top: 90%;
     left: 120px;
+    font-size: 30px;
   }
   .clock_8 {
     top: 73%;
     left: 40px;
+    font-size: 30px;
   }
   .clock_9 {
     top: 50%;
     left: 10px;
+    font-size: 30px;
   }
   .clock_10 {
     top: 28%;
     left: 40px;
+    font-size: 30px;
   }
   .clock_11 {
     top: 10%;
     left: 100px;
+    font-size: 30px;
   }
   #time {
     left: 100px;
+    font-size: 18px;
   }
   .banner {
     position: absolute;
