@@ -4,9 +4,10 @@
 <head>
   <title>アナログ時計</title>
   <link type="text/css" rel="stylesheet" href="css/style.css" />
+
 </head>
 
-<body>
+<body id = "id">
   <div class="clock">
     <span class="clock_hour"></span>
     <span class="clock_min"></span>
@@ -37,7 +38,7 @@
   <button onclick="pomodoro(30)">pomodoro30</button>
   <button onclick="pomodoro(45)">pomodoro45</button>
   <button onclick="pomodoro(50)">pomodoro50</button>
-  <button onclick="pomodoroclear()">pomodoroclear</button>
+  <button onclick="location.reload()">pomodoroclear</button>
   <button onclick="soundstart()">soundstart</button>
   <button onclick="soundstop()">soundstop</button>
 </body>
