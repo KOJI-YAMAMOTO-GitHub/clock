@@ -3,6 +3,8 @@ const youbi = ["日", "月", "火", "水", "木", "金", "土"];
 var secondSound;
 var secondsundflag = false;
 
+var stopdate = null;
+
 setInterval(() => {
   // 現在時間の取得
   const now = new Date();
@@ -36,6 +38,16 @@ setInterval(() => {
   eH.style.transform = `rotate(${dH}deg)`;
   eM.style.transform = `rotate(${dM}deg)`;
   eS.style.transform = `rotate(${dS}deg)`;
+
+  // ポモドーロ　終了オンを鳴らす
+  if (!!stopdate && stopdate <= now){
+    pomodoroclear();
+    soundstop();
+    secondSound = new Audio('./sound/hanabi.mp3');
+    secondSound.play();
+    stopdate = null;
+
+  }
 
 }, 1000);
 
@@ -71,6 +83,9 @@ function pomodoro(xmin) {
   const m = enddate.getMinutes();
 
   elem.textContent = "終了時刻 : " + h + ":" + m;
+  stopdate = enddate;
+
+  soundstart();
 
 }
 
@@ -83,6 +98,9 @@ function pomodoroclear() {
   const stoptt = document.querySelector(".stop");
   // 終了時のstyleを追加
   stoptt.style.transform = `rotate(0deg)`;
+
+  stopdate = null;
+  soundstop();
 
 }
 function soundstart(){
