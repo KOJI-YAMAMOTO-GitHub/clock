@@ -5,6 +5,7 @@ var secondsundflag = false;
 
 var stopdate = null;
 
+
 setInterval(() => {
   // 現在時間の取得
   const now = new Date();
@@ -43,9 +44,10 @@ setInterval(() => {
   if (!!stopdate && stopdate <= now) {
     pomodoroclear();
     soundstop();
-    secondSound = new Audio('./sound/hanabi.mp3');
-    secondSound.play();
+    var endSound = new Audio('./sound/hanabi.mp3');
+    endSound.play();
     stopdate = null;
+    backgroudcolorflush();
 
   }
 
@@ -81,8 +83,9 @@ function pomodoro(xmin) {
   var elem = document.getElementById("endtime");
   const h = enddate.getHours();
   const m = enddate.getMinutes();
+  const s = enddate.getSeconds();
 
-  elem.textContent = "終了時刻 : " + h + ":" + m;
+  elem.textContent = "終了時刻 : " + h + ":" + m + ":" + s;
   stopdate = enddate;
 
   soundstart();
@@ -114,5 +117,13 @@ function soundstop() {
   secondsundflag = false;
   secondSound.pause();
   secondSound.currentTime = 0;
+
+  document.getElementById("id").classList.remove("backflash");
+
+}
+
+function backgroudcolorflush(){
+
+  document.getElementById("id").classList.add("backflash");
 
 }
