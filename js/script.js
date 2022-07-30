@@ -1,6 +1,6 @@
 const youbi = ["日", "月", "火", "水", "木", "金", "土"];
 
-var secondSound;
+var secondSound = new Audio('./sound/SoundOfSecondHand.mp3');
 var secondsundflag = false;
 
 var stopdate = null;
@@ -30,17 +30,17 @@ setInterval(() => {
   const eS = document.querySelector(".clock_sec");
 
   // 秒針の音
-  if(secondsundflag){
+  if (secondsundflag) {
     soundstart();
-}
+  }
 
   // styleを追加
   eH.style.transform = `rotate(${dH}deg)`;
   eM.style.transform = `rotate(${dM}deg)`;
   eS.style.transform = `rotate(${dS}deg)`;
 
-  // ポモドーロ　終了オンを鳴らす
-  if (!!stopdate && stopdate <= now){
+  // ポモドーロ　終了音を鳴らす
+  if (!!stopdate && stopdate <= now) {
     pomodoroclear();
     soundstop();
     secondSound = new Audio('./sound/hanabi.mp3');
@@ -103,13 +103,14 @@ function pomodoroclear() {
   soundstop();
 
 }
-function soundstart(){
-secondsundflag = true;
-secondSound = new Audio('./sound/SoundOfSecondHand.mp3');
-secondSound.play();
+function soundstart() {
+  secondSound.pause();
+  secondSound.currentTime = 0;
+  secondSound.play();
+  secondsundflag = true;
 }
 
-function soundstop(){
+function soundstop() {
   secondsundflag = false;
   secondSound.pause();
   secondSound.currentTime = 0;
