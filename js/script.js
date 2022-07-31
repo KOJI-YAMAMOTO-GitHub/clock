@@ -1,10 +1,12 @@
+// 曜日
 const youbi = ["日", "月", "火", "水", "木", "金", "土"];
 
+//　秒針音
 var secondSound = new Audio('./sound/SoundOfSecondHand.mp3');
+//　秒針音表示判定フラグ
 var secondsundflag = false;
-
+//　ポモドーロ終了日時
 var stopdate = null;
-
 
 setInterval(() => {
   // 現在時間の取得
@@ -53,6 +55,10 @@ setInterval(() => {
 
 }, 1000);
 
+/**
+ * ポモドーロタイマー開始メソッド
+ * @param {*} xmin //ポモドーロ時間
+ */
 function pomodoro(xmin) {
 
   // 開始日時を取得する
@@ -92,6 +98,10 @@ function pomodoro(xmin) {
 
 }
 
+/**
+ * ポモドーロリセットメソッド
+ * ただし、現在は、リロードしてリセットしている為利用していない
+ */
 function pomodoroclear() {
   // 開始時の要素を取得
   const sartt = document.querySelector(".start");
@@ -106,24 +116,40 @@ function pomodoroclear() {
   soundstop();
 
 }
+/**
+ * 秒針音開始メソッド
+ */
 function soundstart() {
+  // 秒針音停止
   secondSound.pause();
+  //秒針を最初に戻す
   secondSound.currentTime = 0;
+  //秒針音開始
   secondSound.play();
+  //秒針音開始フラグ変更
   secondsundflag = true;
+
 }
 
+/**
+ * 秒針音終了メソッド
+ */
 function soundstop() {
+  //秒針音開始フラグ変更
   secondsundflag = false;
+  // 秒針音停止
   secondSound.pause();
+  //秒針を最初に戻す
   secondSound.currentTime = 0;
 
-  document.getElementById("id").classList.remove("backflash");
-
 }
 
-function backgroudcolorflush(){
+/**
+ * ポモドーロ終了時に背景色をフラッシュ表示させるメソッド
+ */
+function backgroudcolorflush() {
 
+  //HTMLにフラッシュさせるStylesheetのクラスを追加する
   document.getElementById("id").classList.add("backflash");
 
 }
