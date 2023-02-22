@@ -241,6 +241,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, 130%);
+    margin-top: 10px;
   }
 }
 
@@ -266,12 +267,14 @@
     left: 50%;
     transform: translate(150%, -50%);
     zoom: 60%;
+    margin-left: 15px;
   }
 
   /* ウィンドウサイズが 640px 以下の場合有効 */
   .clock {
     width: 400px;
     height: 400px;
+    zoom: 80%;
   }
 
   .clock_hour {
