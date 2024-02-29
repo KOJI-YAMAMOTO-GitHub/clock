@@ -30,17 +30,17 @@
     <p id="endtime"></p>
   </div>
   <script type="text/javascript" src="js/script.js"></script>
-  <button onclick="pomodoro(1)">pomodoro1</button>
-  <button onclick="pomodoro(3)">pomodoro3</button>
-  <button onclick="pomodoro(5)">pomodoro5</button>
-  <button onclick="pomodoro(10)">pomodoro10</button>
-  <button onclick="pomodoro(25)">pomodoro25</button>
-  <button onclick="pomodoro(30)">pomodoro30</button>
-  <button onclick="pomodoro(45)">pomodoro45</button>
-  <button onclick="pomodoro(50)">pomodoro50</button>
-  <button onclick="location.reload()">pomodoroclear</button>
-  <button onclick="soundstart()">soundstart</button>
-  <button onclick="soundstop()">soundstop</button>
+  <button onclick="pomodoro(1);requestWakeLock()">pomodoro1</button>
+  <button onclick="pomodoro(3);requestWakeLock()">pomodoro3</button>
+  <button onclick="pomodoro(5);requestWakeLock()">pomodoro5</button>
+  <button onclick="pomodoro(10);requestWakeLock()">pomodoro10</button>
+  <button onclick="pomodoro(25);requestWakeLock()">pomodoro25</button>
+  <button onclick="pomodoro(30);requestWakeLock()">pomodoro30</button>
+  <button onclick="pomodoro(45);requestWakeLock()">pomodoro45</button>
+  <button onclick="pomodoro(50);requestWakeLock()">pomodoro50</button>
+  <button onclick="location.reload();requestWakeLock()">pomodoroclear</button>
+  <button onclick="soundstart();requestWakeLock()">soundstart</button>
+  <button onclick="soundstop();requestWakeLock()">soundstop</button>
   <div id="calendar"></div>
   <script type="text/javascript" src="js/calender.js"></script>
   <script type="text/javascript" src="js/ScreenWakeLock.js"></script>
