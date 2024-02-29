@@ -2,17 +2,23 @@
 let wakeLock = null;
 
 // screen wake lock をリクエストするための関数
-async function requestWakeLock() {
-//window.onload = function(){
+const requestWakeLock = async () => {
     // ブラウザは Screen Wake Lock を拒否することがあるので、
     // try...catch を使い拒否された場合の処理も記述する
     try {
-        // screen wake lock をリクエストする
-        wakeLock = await navigator.wakeLock.request('screen');
-        console.log('screen Lock');
-      } catch (err) {
-      }
-  }
+      wakeLock = await navigator.wakeLock.request('screen');
+  
+      // Screen Wake Lock がリリースされたときの処理
+      wakeLock.addEventListener('release', () => {
+        console.log('Screen Wake Lock was released');
+      });
+      console.log('Screen Wake Lock is active');
+  
+    } catch (err) {
+      console.error(`${err.name}, ${err.message}`);
+    }
+  };
+  
 
 // screen wake lock をリクエストする
 requestWakeLock();
