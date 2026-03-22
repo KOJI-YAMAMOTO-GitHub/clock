@@ -12,19 +12,20 @@ table {
 }
 
 td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--clock-border);
     padding: 5px;
     text-align: center;
+    color: var(--text-color);
 }
 
 td:first-child {
-    color: red;
+    color: #ff6b6b; /* 日曜：少し明るい赤 */
 }
 
 td:last-child {
-    color: royalblue;
+    color: #4dabf7; /* 土曜：少し明るい青 */
 }
 
 td.is-disabled {
-    color: #ccc;
+    color: #666;
 }
