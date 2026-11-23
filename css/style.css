@@ -1,12 +1,11 @@
-/* Responsive layout */
 :root { --bg-color:#fff; --text-color:#333; --clock-border:#333; --needle-color:#333; }
 @media (prefers-color-scheme:dark) { :root {--bg-color:#1a1a1a;--text-color:#f0f0f0;--clock-border:#555;--needle-color:#fff;} }
 * { box-sizing:border-box; }
-html,body { margin:0; min-height:100%; width:100%; background:var(--bg-color);color:var(--text-color); }
-body { min-height:100dvh; padding:12px; font-family:sans-serif; overflow-x:hidden; }
-.layout { min-height:calc(100dvh - 24px); display:flex; align-items:center; justify-content:center; gap:clamp(12px,3vw,40px); }
-.clock { position:relative; width:min( min(78vw,78vh), 800px); aspect-ratio:1; flex:0 1 auto; border:1px solid var(--clock-border);border-radius:50%; }
-.clock span[class^="clock_"] {position:absolute; transform:translate(-50%,-50%);font-size:clamp(14px,5.5cqw,50px); }
+html,body { margin:0; width:100%; min-height:100%; background:var(--bg-color);color:var(--text-color); }
+body { min-height:100dvh; padding:8px; font-family:sans-serif; overflow-x:hidden; display:flex;flex-direction:column; }
+.layout { flex:1 0 auto; min-height:0; width:100%;display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,24px); }
+.clock { position:relative; width:min( min(78vw,78dvh), 800px); aspect-ratio:1; flex:0 1 auto; border:1px solid var(--clock-border);border-radius:50%; }
+.clock span[class^="clock_"] {position:absolute; transform:translate(-50%,-50%);font-size:clamp(12px,5.5cqw,50px); }
 .clock { container-type:inline-size; }
 .clock_12 {top:4%;left:50%;}.clock_1 {top:13%;left:75%;}.clock_2 {top:27%;left:87%;}.clock_3 {top:50%;left:96%;}
 .clock_4 {top:73%;left:87%;}.clock_5 {top:87%;left:75%;}.clock_6 {top:96%;left:50%;}.clock_7 {top:87%;left:25%;}
@@ -18,21 +17,39 @@ body { min-height:100dvh; padding:12px; font-family:sans-serif; overflow-x:hidde
 .start {background:#d9d9d9;width:.25%;}.stop {background:#56b7fd;width:.6%;}
 #time,#endtime {position:absolute;left:50%;transform:translate(-50%,-50%);margin:0;text-align:center;white-space:nowrap;max-width:90%;font-size:clamp(10px,3.8cqw,35px);}
 #time {top:62%;}#endtime {top:70%;font-size:clamp(10px,2.8cqw,25px);}
-.calendar-wrap {flex:0 1 auto;max-width:100%;}#calendar {position:static;transform:none;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:flex-start;}
+.calendar-wrap {flex:0 1 auto;min-width:0;max-width:100%;}#calendar {display:flex;gap:clamp(4px,1vw,12px);flex-wrap:wrap;justify-content:center;align-items:flex-start;width:100%;}
+#calendar section {flex:1 1 260px;min-width:0;max-width:460px;}
 .backflash {animation:flash 1s linear infinite;background:#535353;}@keyframes flash{0%,50%,100%{opacity:0;}35%{opacity:1;background:#e1ff00;}65%{opacity:1;background:#0098ea;}}
-.controls {display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:8px;}
+.controls {display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:8px 4px;flex:0 0 auto;}
 button {font-size:16px;padding:9px 13px;}
 dialog {border:1px solid #777;border-radius:12px;color:var(--text-color);background:var(--bg-color);padding:20px;max-width:90vw;}
 dialog::backdrop {background:#0008;}#timerForm {display:grid;gap:16px;}#timerMinutes{width:100px;font-size:18px;}
 .dialog-buttons {display:flex;gap:12px;justify-content:flex-end;}
-@media (orientation:portrait) {
- .layout {flex-direction:column;justify-content:flex-start;gap:12px;min-height:auto;}
- .clock {width:min(94vw,48dvh,800px);}
- .calendar-wrap {width:100%;}.controls {padding-bottom:env(safe-area-inset-bottom);}
-}
-@media (orientation:landscape) {
+/* Portrait: stacked, with both calendar months readable below the clock. */
+@media (max-aspect-ratio:1/1) {
  body {padding:8px;}
- .layout {min-height:calc(100dvh - 70px);flex-direction:row;}
- .clock {width:min(82dvh,58vw,800px);}
- .calendar-wrap {max-width:40vw;}
+ .layout {flex-direction:column;justify-content:flex-start;align-items:center;gap:10px;}
+ .clock {width:min(94vw,42dvh,600px);flex:0 0 auto;}
+ .calendar-wrap {width:min(100%,760px);flex:0 0 auto;}
+ #calendar section {flex:1 1 100%;max-width:none;}
+}
+/* Landscape: keep the clock within the space above/beside the controls and calendar. */
+@media (min-aspect-ratio:1/1) {
+ body {padding:6px;}
+ .layout {flex-direction:row;align-items:center;justify-content:center;gap:clamp(8px,2vw,24px);}
+ .clock {width:min(70dvh,52vw,760px);max-width:calc(100dvh - 120px);flex:0 1 auto;}
+ .calendar-wrap {width:min(38vw,520px);max-width:38vw;flex:0 1 38vw;}
+ #calendar section {flex:1 1 100%;max-width:none;}
+}
+/* Narrow landscape phones: calendar compact; never allow the clock to exceed usable height. */
+@media (orientation:landscape) and (max-height:500px) {
+ body {padding:4px;}
+ .layout {min-height:0;}
+ .clock {width:min(48dvh,45vw,calc(100dvh - 90px));}
+ .calendar-wrap {width:min(44vw,460px);max-width:44vw;}
+ #calendar section {margin:2px 0;}
+ h1 {font-size:clamp(12px,2.4vh,16px)!important;margin:2px 0!important;}
+ td {padding:1px!important;font-size:clamp(10px,2.3vh,14px);}
+ .controls {gap:4px;padding:4px;}
+ button {font-size:13px;padding:5px 7px;}
 }

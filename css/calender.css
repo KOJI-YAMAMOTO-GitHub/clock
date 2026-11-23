@@ -1,7 +1,5 @@
-section {margin:5px;} h1 {font-size:clamp(14px,2.5vw,18px);margin:5px 0;}
+section {margin:5px;} h1 {font-size:clamp(14px,2.5vw,18px);margin:5px 0;text-align:center;}
 table {border-spacing:0;border-collapse:collapse;width:100%;table-layout:fixed;}
-td {border:1px solid var(--clock-border);padding:clamp(2px,1vw,5px);text-align:center;color:var(--text-color);}
+td {border:1px solid var(--clock-border);padding:clamp(2px,0.65vw,5px);text-align:center;color:var(--text-color);}
 td:first-child {color:#ff6b6b;} td:last-child {color:#4dabf7;} td.is-disabled {color:#666;}
-
-/* 今日の日付：控えめに太字＋下線で表示 */
-td.today {font-weight:bold;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;}
+td.today {background:transparent!important;color:inherit!important;font-weight:700!important;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;border-radius:0!important;box-shadow:none!important;}
