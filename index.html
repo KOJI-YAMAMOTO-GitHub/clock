@@ -1,50 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>アナログ時計</title>
-  <link type="text/css" rel="stylesheet" href="css/style.css" />
-  <link type="text/css" rel="stylesheet" href="css/calender.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>アナログ時計</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calender.css">
 </head>
-
 <body id="id">
+<main class="layout">
   <div class="clock">
-    <span class="clock_hour"></span>
-    <span class="clock_min"></span>
-    <span class="clock_sec"></span>
-    <span class="clock_12">12</span>
-    <span class="clock_1">1</span>
-    <span class="clock_2">2</span>
-    <span class="clock_3">3</span>
-    <span class="clock_4">4</span>
-    <span class="clock_5">5</span>
-    <span class="clock_6">6</span>
-    <span class="clock_7">7</span>
-    <span class="clock_8">8</span>
-    <span class="clock_9">9</span>
-    <span class="clock_10">10</span>
-    <span class="clock_11">11</span>
-    <span class="start"></span>
-    <span class="stop"></span>
-    <p id="time">現在時刻</p>
-    <p id="endtime"></p>
+    <span class="clock_hour"></span><span class="clock_min"></span><span class="clock_sec"></span>
+    <span class="clock_12">12</span><span class="clock_1">1</span><span class="clock_2">2</span>
+    <span class="clock_3">3</span><span class="clock_4">4</span><span class="clock_5">5</span>
+    <span class="clock_6">6</span><span class="clock_7">7</span><span class="clock_8">8</span>
+    <span class="clock_9">9</span><span class="clock_10">10</span><span class="clock_11">11</span>
+    <span class="start"></span><span class="stop"></span>
+    <p id="time">現在時刻</p><p id="endtime"></p>
   </div>
-  <script type="text/javascript" src="js/script.js"></script>
-  <button onclick="pomodoro(1);requestWakeLock()">pomodoro1</button>
-  <button onclick="pomodoro(3);requestWakeLock()">pomodoro3</button>
-  <button onclick="pomodoro(5);requestWakeLock()">pomodoro5</button>
-  <button onclick="pomodoro(10);requestWakeLock()">pomodoro10</button>
-  <button onclick="pomodoro(25);requestWakeLock()">pomodoro25</button>
-  <button onclick="pomodoro(30);requestWakeLock()">pomodoro30</button>
-  <button onclick="pomodoro(45);requestWakeLock()">pomodoro45</button>
-  <button onclick="pomodoro(50);requestWakeLock()">pomodoro50</button>
-  <button onclick="location.reload();requestWakeLock()">pomodoroclear</button>
-  <button onclick="soundstart();requestWakeLock()">soundstart</button>
-  <button onclick="soundstop();requestWakeLock()">soundstop</button>
-  <div id="calendar"></div>
-  <script type="text/javascript" src="js/calender.js"></script>
-  <script type="text/javascript" src="js/ScreenWakeLock.js"></script>
-
-</body>
-</html>
+  <div class="calendar-wrap"><div id="calendar"></div></div>
+</main>
+<nav class="controls">
+<button onclick="openTimerDialog();requestWakeLock()">タイマー設定</button>
+<button onclick="location.reload();requestWakeLock()">リセット</button>
+<button onclick="soundstart();requestWakeLock()">秒針音開始</button>
+<button onclick="soundstop();requestWakeLock()">秒針音停止</button>
+</nav>
+<dialog id="timerDialog">
+<form method="dialog" id="timerForm">
+<h2>タイマー時間</h2><label>時間（分） <input id="timerMinutes" type="number" min="1" max="1440" step="1" value="25" required></label>
+<div class="dialog-buttons"><button type="submit" id="timerStart">開始</button><button type="button" id="timerCancel">キャンセル</button></div>
+</form></dialog>
+<script src="js/script.js"></script><script src="js/calender.js"></script><script src="js/ScreenWakeLock.js"></script>
+</body></html>
